@@ -20,7 +20,7 @@ Nothing company-specific and no secret goes in the core.
 - `bin/check-comments`: lists comment and docstring lines a branch adds. The no-comments rule failed as prose, so it has a check.
 - `skills/grilling`: `/grilling` interviews me about a plan, one round of questions at a time, each with a recommended answer.
 - `skills/correct`: `/correct` turns a mistake I keep correcting into a check, so the next agent cannot repeat it.
-- `skills/joe`: `/joe` re-pitches a message that did not land, in plain language.
+- `skills/kai`: `/kai` re-pitches a message that did not land, in plain language.
 
 The three skills load only when typed. They cost no context until then.
 
@@ -83,7 +83,7 @@ in {
 }
 ```
 
-Repeat the two skill lines for `correct` and `joe`. The activation step re-renders the file on every switch. Between switches, rerun `install.sh --apply --render-only --overlay <file>` after editing.
+Repeat the two skill lines for `correct` and `kai`. The activation step re-renders the file on every switch. Between switches, rerun `install.sh --apply --render-only --overlay <file>` after editing.
 
 ## check-comments
 
@@ -101,6 +101,6 @@ It keeps functional lines: shebangs, encoding and license headers, generated-fil
 
 - `skills/grilling` is adapted from `grilling` in [mattpocock/skills](https://github.com/mattpocock/skills) (MIT, Copyright 2026 Matt Pocock).
 - `skills/correct` is adapted from `correct` in [cursor/plugins pstack](https://github.com/cursor/plugins/tree/main/pstack) (MIT, Copyright 2026 Lauren Tan).
-- `skills/joe` draws on `wait-what` (Matt Pocock) and pstack `bro`.
+- `skills/kai` draws on `wait-what` (Matt Pocock) and pstack `bro`.
 
 mstack is MIT-licensed (`LICENSE`). The upstream MIT notices are in `THIRD_PARTY_NOTICES.md`.

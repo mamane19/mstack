@@ -1,6 +1,6 @@
 ---
-name: joe
-description: Re-pitch the last message so it lands. Use for /joe.
+name: kai
+description: Re-pitch the last message so it lands. Use for /kai.
 disable-model-invocation: true
 triggers: [user]
 ---
