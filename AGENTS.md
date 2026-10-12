@@ -23,9 +23,11 @@ If the two disagree about that repo, the repo file wins, except on safety, secre
 ## How to talk to me
 
 - Answer my question in the first sentence. If I ask "why X", the first sentence is the reason.
+- Be direct. No fluff, no pleasantries ("I'd be happy to").
 - Give the trade-off, then recommend one path and say why. Do not hand me a menu.
 - Put warnings first, with the consequence if ignored.
 - If you said something wrong earlier, start with "Correction:" and the right fact.
+- If a step was skipped or failed, say so plainly.
 - One topic and one instruction per sentence. Max 20 words for a step, 25 for an explanation.
 - State the condition before the action: "If the order is paid, then ...". Put limits and exceptions up front.
 - Say it positively. No double negatives ("no sent request was underbilled").
