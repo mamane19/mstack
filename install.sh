@@ -13,6 +13,7 @@ Links mstack into Claude Code, Codex, pi, Devin, and Cursor. Prints the plan and
                   (default: $MSTACK_OVERLAY, else ~/.config/mstack/overlay.md if it exists)
 
 Safe to rerun. It never overwrites, moves, or deletes a file it did not create.
+It removes its own skill links when that skill is no longer in mstack.
 EOF
 }
 
@@ -107,6 +108,25 @@ link() {
   run ln -s "$target" "$dest"
 }
 
+points_into_mstack() {
+  [ -L "$1" ] && [ "$(readlink "$1")" = "$mstack_dir/skills/$(basename "$1")" ]
+}
+
+prune_skill_links() {
+  for agents_link in "$HOME/.agents/skills"/*; do
+    points_into_mstack "$agents_link" || continue
+    name="$(basename "$agents_link")"
+    [ -d "$mstack_dir/skills/$name" ] && continue
+    claude_link="$HOME/.claude/skills/$name"
+    if [ -L "$claude_link" ] && [ "$(readlink "$claude_link")" = "$agents_link" ]; then
+      say "remove  $claude_link (skill $name is no longer in mstack)"
+      run unlink "$claude_link"
+    fi
+    say "remove  $agents_link (skill $name is no longer in mstack)"
+    run unlink "$agents_link"
+  done
+}
+
 [ "$apply" -eq 1 ] || say "Dry run. Nothing changes until you pass --apply."
 
 render
@@ -119,6 +139,8 @@ link "$rendered" "$HOME/.claude/CLAUDE.md"
 link "$rendered" "$codex_home/AGENTS.md"
 link "$rendered" "$HOME/.pi/agent/AGENTS.md"
 link "$rendered" "$HOME/.config/devin/AGENTS.md"
+
+prune_skill_links
 
 for skill_dir in "$mstack_dir"/skills/*/; do
   name="$(basename "$skill_dir")"

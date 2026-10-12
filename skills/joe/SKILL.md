@@ -1,6 +1,6 @@
 ---
-name: wait-what
-description: Re-pitch the last message so it lands. Use for /wait-what.
+name: joe
+description: Re-pitch the last message so it lands. Use for /joe.
 disable-model-invocation: true
 triggers: [user]
 ---
